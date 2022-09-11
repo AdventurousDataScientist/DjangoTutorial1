@@ -1,0 +1,12 @@
+{% extends "main/base.html" %}
+
+{% block title %}Create List{% endblock %}
+{% block content %}
+    <h1>This is the create list page</h1>
+<form method="post" action="/create">
+    {% csrf_token %} <!--prevents hacking for authenticated users, required for all forms-->
+    {{form.as_p}} <!--normally you have tons of fields for each piece of data,
+    this variable eliminates all of that -->
+    <button type="submit" name="submit">Create New List</button>
+</form>
+{% endblock %}
